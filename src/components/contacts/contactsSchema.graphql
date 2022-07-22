@@ -1,0 +1,67 @@
+type Name {
+  title: String
+  first: String
+  last: String
+}
+
+type Location {
+  street: String
+  city: String
+  state: String
+  country: String
+}
+
+type Picture {
+  large: String
+  medium: String
+  thumbnail: String
+}
+
+type Contact {
+  id: ID
+  gender: String
+  name: Name
+  email: String
+  location: Location
+  dob: String
+  phone: String
+  picture: Picture
+}
+
+input NameInput {
+  title: String
+  first: String
+  last: String
+}
+
+input LocationInput {
+  street: String
+  city: String
+  state: String
+  country: String
+}
+
+input PictureInput {
+  large: String
+  medium: String
+  thumbnail: String
+}
+
+input ContactInput {
+  gender: String
+  name: NameInput
+  email: String
+  location: LocationInput
+  dob: String
+  phone: String
+  picture: PictureInput
+}
+
+type Query {
+  contacts: [Contact]
+}
+
+type Mutation {
+  addContact(input: ContactInput): Contact
+  removeContact(id: String): Contact
+}

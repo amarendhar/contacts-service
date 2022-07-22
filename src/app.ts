@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
 import cors from 'cors'
-import commonRoutes from './routes'
+import commonRoutes from './routes/commonRoutes'
+import apolloServerRoute from './routes/apolloServerRoute'
 import { errorHandler, notFoundHandler } from './middlewares'
 import logger from './common/utils/logger'
 
@@ -24,6 +25,7 @@ app.use(cors(corsOptions))
 
 // Routes
 app.use(commonRoutes)
+apolloServerRoute.applyMiddleware({ app })
 
 // Error Handlers
 app.use(errorHandler)
