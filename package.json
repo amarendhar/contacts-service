@@ -1,0 +1,41 @@
+{
+  "name": "contacts-service",
+  "version": "1.0.0",
+  "description": "contacts service",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "NODE_ENV=development nodemon --exec ts-node src/server.ts",
+    "start:debug": "NODE_ENV=debug nodemon --exec ts-node src/server.ts",
+    "start:prod": "NODE_ENV=production nodemon --exec ts-node src/server.ts",
+    "serve:build": "npm run build && nodemon build/server.js",
+    "build": "rimraf build && tsc && npm run copy-packageJSON",
+    "copy-packageJSON": "cp package.json build",
+    "type-check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amarendhar/contacts-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amarendhar/contacts-service/issues"
+  },
+  "homepage": "https://github.com/amarendhar/contacts-service#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.6",
+    "nodemon": "^2.0.19",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "winston": "^3.8.1"
+  }
+}
