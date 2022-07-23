@@ -1,5 +1,9 @@
 import logger from "../../common/utils/logger";
-import { getContactsQuery, addContactMutation, removeContactMutation } from "./contactsDAL";
+import {
+  getContactsQuery,
+  addContactMutation,
+  removeContactMutation,
+} from "./contactsDAL";
 import * as ContactTypes from "./contactTypes";
 
 const contactsResolver = {
@@ -7,14 +11,16 @@ const contactsResolver = {
     contacts: async (): Promise<ContactTypes.Contact[]> => {
       try {
         logger.debug({
-          message: "contactsResolver.Query.contacts: Fetching contacts from Database",
+          message:
+            "contactsResolver.Query.contacts: Fetching contacts from Database",
           data: {},
         });
 
         const contacts = await getContactsQuery();
 
         logger.debug({
-          message: "contactsResolver.Query.contacts: Fetched contacts from Database",
+          message:
+            "contactsResolver.Query.contacts: Fetched contacts from Database",
           data: {
             contacts,
           },
@@ -37,20 +43,19 @@ const contactsResolver = {
   Mutation: {
     addContact: async (
       _: undefined,
-      { input }: { input: ContactTypes.Contact }
-    ): Promise<ContactTypes.Contact> => {
+      { contactInput }: { contactInput: ContactTypes.Contact }
+    ): Promise<ContactTypes.AddContact> => {
       try {
-        const result = await addContactMutation(input)
+        const result = await addContactMutation(contactInput);
 
         return result
-
       } catch (error) {
         const message = "contactsResolver.Mutation.addContact: Failed";
 
         logger.error({
           message,
           data: {
-            input,
+            contactInput,
           },
           stacktrace: error,
         });
@@ -61,12 +66,11 @@ const contactsResolver = {
     removeContact: async (
       _: undefined,
       { contactId }: { contactId: String }
-    ): Promise<ContactTypes.Contact> => {
+    ): Promise<ContactTypes.RemoveContact> => {
       try {
-        const result = await removeContactMutation(contactId)
+        const result = await removeContactMutation(contactId);
 
-        return result
-
+        return result;
       } catch (error) {
         const message = "contactsResolver.Mutation.addContact: Failed";
 

@@ -3,6 +3,7 @@ import cors from 'cors'
 import commonRoutes from './routes/commonRoutes'
 import apolloServerRoute from './routes/apolloServerRoute'
 import { errorHandler, notFoundHandler } from './middlewares'
+import './mongo/mongoConnection'
 import logger from './common/utils/logger'
 
 const app: Application = express()

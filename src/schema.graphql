@@ -1,14 +1,14 @@
 type Name {
-  title: String
-  first: String
-  last: String
+  title: String!
+  first: String!
+  last: String!
 }
 
 type Location {
-  street: String
-  city: String
-  state: String
-  country: String
+  street: String!
+  city: String!
+  state: String!
+  country: String!
 }
 
 type Picture {
@@ -19,26 +19,26 @@ type Picture {
 
 type Contact {
   id: ID
-  gender: String
-  name: Name
-  email: String
-  location: Location
-  dob: String
-  phone: String
+  gender: String!
+  name: Name!
+  email: String!
+  location: Location!
+  dob: String!
+  phone: String!
   picture: Picture
 }
 
 input NameInput {
-  title: String
-  first: String
-  last: String
+  title: String!
+  first: String!
+  last: String!
 }
 
 input LocationInput {
-  street: String
-  city: String
-  state: String
-  country: String
+  street: String!
+  city: String!
+  state: String!
+  country: String!
 }
 
 input PictureInput {
@@ -48,13 +48,25 @@ input PictureInput {
 }
 
 input ContactInput {
-  gender: String
-  name: NameInput
-  email: String
-  location: LocationInput
-  dob: String
-  phone: String
+  gender: String!
+  name: NameInput!
+  email: String!
+  location: LocationInput!
+  dob: String!
+  phone: String!
   picture: PictureInput
+}
+
+type AddContact {
+  status: String
+  message: String
+  result: Contact
+}
+
+type RemoveContact {
+  status: String
+  message: String
+  result: Contact
 }
 
 type Query {
@@ -62,8 +74,8 @@ type Query {
 }
 
 type Mutation {
-  addContact(input: ContactInput): Contact
-  removeContact(id: String): Contact
+  addContact(contactInput: ContactInput): AddContact
+  removeContact(contactId: String!): RemoveContact
 }
 
 schema {

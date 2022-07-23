@@ -1,3 +1,7 @@
+import * as GlobalTypes from "../../common/globalTypes";
+
+export type Gender = 'male' | 'female'
+
 export type Name = {
   title: string;
   first: string;
@@ -12,17 +16,29 @@ export type Location = {
 };
 
 export type Picture = {
-  large: string;
-  medium: string;
-  thumbnail: string;
+  large?: string;
+  medium?: string;
+  thumbnail?: string;
 };
 
 export type Contact = {
-  gender: string;
+  gender: Gender;
   name: Name;
   email: string;
   location: Location;
   dob: string;
   phone: string;
-  picture: Picture;
+  picture?: Picture;
+};
+
+export type AddContact = {
+  status: GlobalTypes.STATUS;
+  message: string;
+  result: Contact;
+};
+
+export type RemoveContact = {
+  status: GlobalTypes.STATUS;
+  message: string;
+  result: Contact;
 };

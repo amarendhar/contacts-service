@@ -38,9 +38,15 @@ export type Logger = {
   level: LoggerLevel
 }
 
+export type DB = {
+  host: string
+  name: string
+}
+
 export type ConfigType = {
   port?: number | string
   logger: Logger
+  db: DB
 }
 
 export enum NODE_ENV {
@@ -57,3 +63,9 @@ export type ConfigTypes = Record<
   | NODE_ENV.DEBUG,
   ConfigType
 >
+
+export enum STATUS {
+  SUCCESS = 'success',
+  FAILED = 'failed',
+  ERROR = 'error',
+}

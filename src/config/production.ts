@@ -5,6 +5,11 @@ const production: GlobalTypes.ConfigType = {
   logger: {
     level: GlobalTypes.LoggerLevel.INFO,
   },
+  // Change values to production-version values if they are ready.
+  db: {
+    host: process.env.DATABASE_HOST || 'mongodb://localhost:27018',
+    name: process.env.DATABASE_NAME || 'contacts-database',
+  }
 }
 
 export default production
