@@ -2,9 +2,18 @@
 * Contacts-List-Service to add/remove/fetch contacts
 
 ### How to run project
-* install NodeJS from [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-* `npm install` or `npm i`
+* Install NodeJS from [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+* Install Docker-Desktop from [https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
+* `npm install`
+* `npm run start:docker`
 * `npm run start:dev`
+
+### How to prepare Docker-Image and push into the Docker-Hub
+* `./build-docker.sh`
+* If permission is denied, then `sudo chmod 777 Dockerfile`
+
+### how to run the GraphQL playground
+* `http://localhost:8001/graphql`
 
 ### How to run in development-mode
 * `npm run start:dev`
@@ -25,3 +34,4 @@
 * Node JS
 * Express JS
 * Typescript
+* Docker
