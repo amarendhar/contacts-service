@@ -18,7 +18,7 @@ type Picture {
 }
 
 type Contact {
-  id: ID
+  id: ID!
   gender: String!
   name: Name!
   email: String!
@@ -58,19 +58,19 @@ input ContactInput {
 }
 
 type AddContact {
-  status: String
-  message: String
-  result: Contact
+  status: String!
+  message: String!
+  result: Contact!
 }
 
 type RemoveContact {
-  status: String
-  message: String
-  result: Contact
+  status: String!
+  message: String!
+  result: Contact!
 }
 
 type Query {
-  contacts: [Contact]
+  getContacts: [Contact!]!
 }
 
 type Mutation {

@@ -6,7 +6,7 @@ const base: GlobalTypes.ConfigType = {
     level: GlobalTypes.LoggerLevel.INFO,
   },
   db: {
-    host: process.env.DATABASE_HOST || 'mongodb://localhost:27018',
+    host: process.env.DATABASE_HOST || 'mongodb://localhost:27017',
     name: process.env.DATABASE_NAME || 'contacts-database',
   }
 }

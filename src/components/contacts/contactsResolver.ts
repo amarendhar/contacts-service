@@ -8,7 +8,7 @@ import * as ContactTypes from "./contactTypes";
 
 const contactsResolver = {
   Query: {
-    contacts: async (): Promise<ContactTypes.Contact[]> => {
+    getContacts: async (): Promise<ContactTypes.Contact[]> => {
       try {
         logger.debug({
           message:
@@ -36,7 +36,8 @@ const contactsResolver = {
           stacktrace: error,
         });
 
-        throw new Error(message);
+        // @ts-ignore
+        throw new Error(error);
       }
     },
   },
@@ -60,7 +61,8 @@ const contactsResolver = {
           stacktrace: error,
         });
 
-        throw new Error(message);
+        // @ts-ignore
+        throw new Error(error);
       }
     },
     removeContact: async (
@@ -82,7 +84,8 @@ const contactsResolver = {
           stacktrace: error,
         });
 
-        throw new Error(message);
+        // @ts-ignore
+        throw new Error(error);
       }
     },
   },

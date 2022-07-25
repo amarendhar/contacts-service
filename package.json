@@ -4,6 +4,7 @@
   "description": "contacts service",
   "main": "index.js",
   "scripts": {
+    "start": "npm run generate-schema && NODE_ENV=development nodemon --exec ts-node src/server.ts",
     "start:dev": "npm run generate-schema && NODE_ENV=development nodemon --exec ts-node src/server.ts",
     "start:debug": "npm run generate-schema && NODE_ENV=debug nodemon --exec ts-node src/server.ts",
     "start:prod": "npm run generate-schema && NODE_ENV=production nodemon --exec ts-node src/server.ts",

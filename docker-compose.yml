@@ -5,5 +5,5 @@ services:
     image: mongo
     container_name: contacts-service-db
     ports:
-      - 27018:27017
+      - 27017:27017
     restart: always
