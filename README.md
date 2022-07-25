@@ -35,3 +35,4 @@
 * Express JS
 * Typescript
 * Docker
+* MongoDB
